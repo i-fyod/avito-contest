@@ -27,7 +27,7 @@ export function Card({
     <Paper
       p="md"
       bdrs="md"
-      style={{ boxShadow: "0 3px 15px -1px rgba(50, 50, 71, 0.02), 0 0 4px 0 rgba(12, 26, 75, 0.05)" }}
+      style={{ cursor: "pointer", boxShadow: "0 3px 15px -1px rgba(50, 50, 71, 0.02), 0 0 4px 0 rgba(12, 26, 75, 0.05)" }}
       withBorder
     >
       <Flex
