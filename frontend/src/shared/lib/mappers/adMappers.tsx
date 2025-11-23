@@ -1,9 +1,11 @@
-import React from 'react';
-import { Clock4, CheckCircle2, XCircle, Bolt } from 'lucide-react';
-import { AdCardData } from '@/entities/ad/model/types';
+import { Bolt, CheckCircle2, Clock4, XCircle } from "lucide-react";
+
+import React from "react";
+
+import { AdCardData } from "@/entities/ad";
 
 export const statusMap: Record<
-  AdCardData['status'],
+  AdCardData["status"],
   {
     c: string;
     icon: React.ReactNode;
@@ -11,24 +13,24 @@ export const statusMap: Record<
   }
 > = {
   pending: {
-    c: 'yellow.7',
+    c: "yellow.7",
     icon: <Clock4 size={14} />,
-    label: 'На модерации',
+    label: "На модерации",
   },
   approved: {
-    c: 'green.7',
+    c: "green.7",
     icon: <CheckCircle2 size={14} />,
-    label: 'Одобрено',
+    label: "Одобрено",
   },
   rejected: {
-    c: 'red.7',
+    c: "red.7",
     icon: <XCircle size={14} />,
-    label: 'Отклонено',
+    label: "Отклонено",
   },
 };
 
 export const priorityMap: Record<
-  AdCardData['priority'],
+  AdCardData["priority"],
   {
     bg: string;
     c: string;
@@ -37,15 +39,15 @@ export const priorityMap: Record<
   }
 > = {
   normal: {
-    bg: 'blue.1',
-    c: 'blue.7',
+    bg: "blue.1",
+    c: "blue.7",
     icon: null,
-    label: 'Обычный',
+    label: "Обычный",
   },
   urgent: {
-    bg: 'orange.1',
-    c: 'orange.7',
+    bg: "orange.1",
+    c: "orange.7",
     icon: <Bolt size={14} />,
-    label: 'Срочный',
+    label: "Срочный",
   },
 };

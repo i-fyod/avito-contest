@@ -1,8 +1,9 @@
-import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "@/app/App";
-import { ListPage } from "@/pages/list";
 import { ItemPage } from "@/pages/item";
+import { ListPage } from "@/pages/list";
 import { StatsPage } from "@/pages/stats";
+
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
   {
