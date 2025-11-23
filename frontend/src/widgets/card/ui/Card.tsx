@@ -1,18 +1,27 @@
-import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-import { Badge, Button, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
+import { Badge, Flex, Group, Paper, Stack, Text, Title } from "@mantine/core";
 
-import { CardProps } from "@/entities/ad";
+import { AdCard } from "@/entities/ad/model/types";
 
 import { formatRelativeTime } from "@/shared/lib/helpers";
 import { priorityMap, statusMap } from "@/shared/lib/mappers/adMappers.tsx";
 import { Image } from "@/shared/ui";
 
-export function Card({ ad, onOpen }: CardProps) {
+interface CardProps {
+  ad: AdCard;
+}
+
+export function Card({ ad }: CardProps) {
+  const navigate = useNavigate();
   const relativeTime = formatRelativeTime(ad.createdAt);
 
   const status = statusMap[ad.status];
   const priority = priorityMap[ad.priority];
+
+  const handleNavigate = () => {
+    navigate(`/item/${ad.id}`);
+  };
 
   return (
     <Paper
@@ -22,7 +31,8 @@ export function Card({ ad, onOpen }: CardProps) {
         cursor: "pointer",
         boxShadow: "0 3px 15px -1px rgba(50, 50, 71, 0.02), 0 0 4px 0 rgba(12, 26, 75, 0.05)",
       }}
-      withBorder>
+      withBorder
+      onClick={handleNavigate}>
       <Flex direction="row" align="center" justify="space-between" gap="md" wrap="wrap">
         <Group align="start" gap="md" style={{ flex: 1, minWidth: 260 }}>
           <Image src={ad.images?.[0]} w={120} h={120} />
@@ -47,17 +57,6 @@ export function Card({ ad, onOpen }: CardProps) {
             </Text>
           </Stack>
         </Group>
-
-        <Button
-          radius="md"
-          size="sm"
-          variant="filled"
-          color="green"
-          rightSection={<ArrowRight size={16} />}
-          fw={600}
-          onClick={() => onOpen?.(ad)}>
-          Открыть
-        </Button>
       </Flex>
     </Paper>
   );

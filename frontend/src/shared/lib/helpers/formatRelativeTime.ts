@@ -1,5 +1,12 @@
 export function formatRelativeTime(dateIso: string): string {
+  if (!dateIso) {
+    return "";
+  }
   const date = new Date(dateIso);
+  if (isNaN(date.getTime())) {
+    return "";
+  }
+
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffSec = Math.floor(diffMs / 1000);
@@ -37,7 +44,7 @@ export function formatRelativeTime(dateIso: string): string {
           : "дней";
     return `${n} ${word} назад`;
   }
-  // fallback на локальное форматирование даты (кратко)
+
   return new Intl.DateTimeFormat("ru-RU", {
     day: "2-digit",
     month: "short",

@@ -1,11 +1,11 @@
-import { Bolt, CheckCircle2, Clock4, XCircle } from "lucide-react";
+import { Bolt, CheckCircle2, Clock4, Edit, XCircle } from "lucide-react";
 
 import React from "react";
 
-import { AdCardData } from "@/entities/ad";
+import { AdCard } from "@/entities/ad/model/types";
 
 export const statusMap: Record<
-  AdCardData["status"],
+  AdCard["status"],
   {
     c: string;
     icon: React.ReactNode;
@@ -27,10 +27,15 @@ export const statusMap: Record<
     icon: <XCircle size={14} />,
     label: "Отклонено",
   },
+  draft: {
+    c: "gray.5",
+    icon: <Edit size={14} />,
+    label: "Черновик",
+  },
 };
 
 export const priorityMap: Record<
-  AdCardData["priority"],
+  AdCard["priority"],
   {
     bg: string;
     c: string;
