@@ -2,7 +2,7 @@ import { FileText, List } from "lucide-react";
 
 import React from "react";
 
-import { Divider, Group, Paper, Stack, Text, Title } from "@mantine/core";
+import { Divider, Group, Stack, Text, Title } from "@mantine/core";
 
 import { Ad } from "@/entities/ad/model/types";
 
@@ -17,23 +17,25 @@ interface AdInfoProps {
 
 export const AdInfo: React.FC<AdInfoProps> = ({ images, description, characteristics }) => {
   return (
-    <Stack>
+    <Stack gap="md">
       <ImageGallery images={images} />
-      <Paper withBorder p="md" radius="md">
-        <Group gap="sm" align="center" mb="md">
-          <FileText />
-          <Title order={4}>Полное описание</Title>
-        </Group>
-        <Text c="dimmed" mb="lg">
-          {description}
-        </Text>
-        <Divider my="md" />
-        <Group gap="sm" align="center" mb="md">
-          <List />
-          <Title order={5}>Характеристики товара</Title>
-        </Group>
-        <CharacteristicsTable characteristics={characteristics} />
-      </Paper>
+      <Group gap="xs" align="center" mb="sm">
+        <FileText size={20} />
+        <Title order={4} size="h5">
+          Полное описание
+        </Title>
+      </Group>
+      <Text c="dimmed" size="sm" style={{ lineHeight: 1.6, whiteSpace: "pre-wrap" }}>
+        {description}
+      </Text>
+      <Divider />
+      <Group gap="xs" align="center" mb="sm">
+        <List size={20} />
+        <Title order={4} size="h5">
+          Характеристики товара
+        </Title>
+      </Group>
+      <CharacteristicsTable characteristics={characteristics} />
     </Stack>
   );
 };

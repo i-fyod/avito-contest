@@ -2,7 +2,7 @@ import { Image as ImageIcon } from "lucide-react";
 
 import React, { useEffect, useState } from "react";
 
-import { Box, Group, Image, Paper, SimpleGrid, Title } from "@mantine/core";
+import { Box, Group, Image, SimpleGrid, Title } from "@mantine/core";
 
 import { Ad } from "@/entities/ad/model/types";
 
@@ -20,7 +20,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   }, [images]);
 
   return (
-    <Paper withBorder p="md" radius="md">
+    <>
       <Group gap="sm" align="center" mb="md">
         <ImageIcon />
         <Title order={4}>Галерея изображений ({images.length})</Title>
@@ -49,6 +49,6 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
           </Box>
         ))}
       </SimpleGrid>
-    </Paper>
+    </>
   );
 };
