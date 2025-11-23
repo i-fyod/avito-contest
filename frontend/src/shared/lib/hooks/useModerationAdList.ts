@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 
-import type { Ad } from "@/entities/ad/model/types";
-
 import { getAds } from "@/shared/api/ads";
 
 interface UseModerationAdListOptions {
