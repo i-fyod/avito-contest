@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Alert, Button, Container, Grid, Group, Loader, Stack, Title } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 
+import { RejectAdModal } from "@/features/rejectAdModal";
+
 import { AdInfo } from "@/widgets/AdInfo";
 import { ModerationHistory } from "@/widgets/ModerationHistory";
 import { ModerationPanel } from "@/widgets/ModerationPanel";
@@ -13,8 +15,6 @@ import { SellerProfile } from "@/widgets/SellerProfile";
 
 import { approveAd, requestAdChanges } from "@/shared/api";
 import { useAdDetails } from "@/shared/lib/hooks/useAdDetails";
-
-import { RejectAdModal } from "./RejectAdModal";
 
 export const ItemPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -123,7 +123,7 @@ export const ItemPage: React.FC = () => {
                 </Alert>
               )}
               <Button
-                onClick={() => navigate(-1)}
+                onClick={() => navigate("/list")}
                 leftSection={<ArrowLeft size={16} />}
                 variant="default">
                 Назад к списку

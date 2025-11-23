@@ -55,18 +55,24 @@ export const ModerationHistory: React.FC<ModerationHistoryProps> = ({ moderation
         <History />
         <Title order={4}>История модерации</Title>
       </Group>
-      <Timeline active={moderationHistory.length} bulletSize={24} lineWidth={2}>
-        {moderationHistory.map((event: ModerationHistoryType, index: number) => {
-          const { icon, color, title, status } = getModerationEventProps(event);
-          return (
-            <Timeline.Item key={index} bullet={icon} title={title} color={color}>
-              <Text c="dimmed" size="xs">
-                {status}
-              </Text>
-            </Timeline.Item>
-          );
-        })}
-      </Timeline>
+      {moderationHistory.length === 0 ? (
+        <Text c="dimmed" ta="center">
+          История модерации пуста.
+        </Text>
+      ) : (
+        <Timeline active={moderationHistory.length} bulletSize={24} lineWidth={2}>
+          {moderationHistory.map((event: ModerationHistoryType, index: number) => {
+            const { icon, color, title, status } = getModerationEventProps(event);
+            return (
+              <Timeline.Item key={index} bullet={icon} title={title} color={color}>
+                <Text c="dimmed" size="xs">
+                  {status}
+                </Text>
+              </Timeline.Item>
+            );
+          })}
+        </Timeline>
+      )}
     </Paper>
   );
 };

@@ -22,7 +22,7 @@ export const useAdDetails = (id: number | undefined) => {
       setError(null);
     } catch (err) {
       setError(err as Error);
-      setAd(null); // Clear ad data on error
+      setAd(null);
     } finally {
       setLoading(false);
     }
