@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { AdCardData } from "@/entities/ad";
+import { AdCard } from "@/entities/ad/model/types";
 import { AdFilterState, AdStatus, SortField, SortOrder } from "@/entities/filter/model/types";
 
 interface PaginationState {
@@ -62,7 +62,7 @@ export const useAdsData = (limit = 10) => {
 
   const { page: activePage, filters } = paramsToFilters(searchParams);
 
-  const [ads, setAds] = useState<AdCardData[]>([]);
+  const [ads, setAds] = useState<AdCard[]>([]);
   const [pagination, setPagination] = useState<PaginationState | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

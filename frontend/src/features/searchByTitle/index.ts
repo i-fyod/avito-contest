@@ -1,1 +1,1 @@
-export { SearchByTitle } from './ui/SearchByTitle';
+export { SearchByTitle } from "./ui/SearchByTitle";

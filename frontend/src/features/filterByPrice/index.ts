@@ -1,1 +1,1 @@
-export { FilterByPrice } from './ui/FilterByPrice';
+export { FilterByPrice } from "./ui/FilterByPrice";

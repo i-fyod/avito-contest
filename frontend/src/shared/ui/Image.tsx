@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Image as MantineImage, Flex, Text, ImageProps } from '@mantine/core';
+import { useState } from "react";
+
+import { Flex, ImageProps, Image as MantineImage, Text } from "@mantine/core";
 
 interface CustomImageProps extends ImageProps {
   src?: string | null;
@@ -17,8 +18,7 @@ export function Image({ src, w = 120, h = 120, ...props }: CustomImageProps) {
         bdrs="md"
         justify="center"
         align="center"
-        style={{ overflow: 'hidden' }}
-      >
+        style={{ overflow: "hidden" }}>
         <Text fz={12} fw={500} c="gray.6">
           Фотография
         </Text>
@@ -27,13 +27,6 @@ export function Image({ src, w = 120, h = 120, ...props }: CustomImageProps) {
   }
 
   return (
-    <MantineImage
-      src={src}
-      w={w}
-      h={h}
-      radius="md"
-      onError={() => setError(true)}
-      {...props}
-    />
+    <MantineImage src={src} w={w} h={h} radius="md" onError={() => setError(true)} {...props} />
   );
 }
